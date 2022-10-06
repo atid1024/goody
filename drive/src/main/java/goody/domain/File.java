@@ -40,6 +40,12 @@ public class File  {
     
     
     private Long size;
+    
+    
+    
+    
+    
+    private String status;
 
     @PostPersist
     public void onPostPersist(){
@@ -57,6 +63,11 @@ public class File  {
 
 
 
+    public void deleteFile(){
+        FileDeleted fileDeleted = new FileDeleted(this);
+        fileDeleted.publishAfterCommit();
+
+    }
 
 
 
